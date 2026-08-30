@@ -16,6 +16,12 @@ module BilletoRailsTest
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
 
+    # Declared here (rather than only in an initializer) so that
+    # `Rails.configuration.billetto_client ||= ...` has something to read on
+    # its very first access - custom config keys raise NoMethodError until
+    # they've been assigned at least once.
+    config.billetto_client = nil
+
     config.generators do |g|
       g.test_framework :rspec,
         fixtures: false,
