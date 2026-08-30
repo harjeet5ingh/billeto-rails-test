@@ -17,6 +17,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# HTTP client used to talk to the Billetto API [https://github.com/lostisland/faraday]
+gem "faraday"
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -55,6 +58,11 @@ group :development, :test do
 
   # Fixtures replacement [https://github.com/thoughtbot/factory_bot_rails]
   gem "factory_bot_rails"
+end
+
+group :test do
+  # Stub HTTP requests in specs [https://github.com/bblimke/webmock]
+  gem "webmock"
 end
 
 group :development do

@@ -50,4 +50,9 @@ Rails.application.configure do
 
   # Raise error when a before_action's only/except options reference missing actions.
   config.action_controller.raise_on_missing_callback_actions = true
+
+  # Never hit the real Billetto API from specs - always use the fake adapter.
+  config.to_prepare do
+    Rails.configuration.billetto_client = Billetto::FakeClient.new
+  end
 end
