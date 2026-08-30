@@ -8,3 +8,39 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  color: #1a1a1a;
+}
+
+.event-list {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.event-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.event-card__image {
+  width: 100%;
+  max-height: 240px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.event-card__title {
+  margin: 0 0 0.25rem;
+}
+
+.event-card__date {
+  color: #666;
+  margin: 0 0 0.5rem;
+}

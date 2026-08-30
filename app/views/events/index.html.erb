@@ -1,0 +1,11 @@
+<% content_for :title, "Events" %>
+
+<h1>Upcoming events</h1>
+
+<% if @events.any? %>
+  <div class="event-list">
+    <%= render @events %>
+  </div>
+<% else %>
+  <p>No events yet. Run <code>rails billetto:ingest_events</code> to pull some in.</p>
+<% end %>

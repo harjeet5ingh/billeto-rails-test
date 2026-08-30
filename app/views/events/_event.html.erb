@@ -1,0 +1,9 @@
+<%= tag.article class: "event-card", id: dom_id(event) do %>
+  <% if event.image_url.present? %>
+    <%= image_tag event.image_url, alt: event.title, class: "event-card__image" %>
+  <% end %>
+
+  <h2 class="event-card__title"><%= event.title %></h2>
+  <p class="event-card__date"><%= event.starts_at.strftime("%A, %d %B %Y at %H:%M") %></p>
+  <p class="event-card__description"><%= truncate(event.description, length: 160) %></p>
+<% end %>
