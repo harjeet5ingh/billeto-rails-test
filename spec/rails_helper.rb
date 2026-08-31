@@ -9,6 +9,7 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 # return unless Rails.env.test?
 require 'rspec/rails'
 require 'webmock/rspec'
+require 'ruby_event_store/rspec'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 WebMock.disable_net_connect!(allow_localhost: true)
@@ -69,6 +70,7 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 
   config.include FactoryBot::Syntax::Methods
+  config.include RubyEventStore::RSpec::Matchers
 
   # Filter lines from Rails gems in backtraces.
   config.filter_rails_from_backtrace!

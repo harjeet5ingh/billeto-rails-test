@@ -20,6 +20,13 @@ gem "jbuilder"
 # HTTP client used to talk to the Billetto API [https://github.com/lostisland/faraday]
 gem "faraday"
 
+# Event store used for the voting feature [https://railseventstore.org]
+gem "rails_event_store"
+
+# Command bus used to dispatch domain commands (pulled in by rails_event_store,
+# declared explicitly since we depend on it directly) [https://github.com/arkency/command_bus]
+gem "arkency-command_bus"
+
 # Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
 # gem "bcrypt", "~> 3.1.7"
 
@@ -63,6 +70,9 @@ end
 group :test do
   # Stub HTTP requests in specs [https://github.com/bblimke/webmock]
   gem "webmock"
+
+  # RSpec matchers for asserting on published domain events [https://github.com/RailsEventStore/rails_event_store]
+  gem "ruby_event_store-rspec"
 end
 
 group :development do
