@@ -55,4 +55,8 @@ Rails.application.configure do
   config.to_prepare do
     Rails.configuration.billetto_client = Billetto::FakeClient.new
   end
+
+  # Run ActiveJob jobs (e.g. the vote count projector) inline, synchronously,
+  # so specs can assert on their effects without needing perform_enqueued_jobs.
+  config.active_job.queue_adapter = :inline
 end

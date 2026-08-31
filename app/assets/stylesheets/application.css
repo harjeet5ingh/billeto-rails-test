@@ -44,3 +44,22 @@ body {
   color: #666;
   margin: 0 0 0.5rem;
 }
+
+.event-card__votes {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.vote-button {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background: #fafafa;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.vote-button:hover {
+  background: #f0f0f0;
+}

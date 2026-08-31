@@ -11,5 +11,10 @@ Rails.application.routes.draw do
 
   root "events#index"
 
-  resources :events, only: [:index]
+  resources :events, only: [:index] do
+    member do
+      post :upvote, to: "votes#upvote"
+      post :downvote, to: "votes#downvote"
+    end
+  end
 end

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
   def index
-    @events = Event.order(starts_at: :asc)
+    @events = Event.includes(:vote_count).order(starts_at: :asc)
   end
 end

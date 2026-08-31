@@ -6,4 +6,9 @@
   <h2 class="event-card__title"><%= event.title %></h2>
   <p class="event-card__date"><%= event.starts_at.strftime("%A, %d %B %Y at %H:%M") %></p>
   <p class="event-card__description"><%= truncate(event.description, length: 160) %></p>
+
+  <div class="event-card__votes">
+    <%= button_to "▲ #{event.upvotes}", upvote_event_path(event), class: "vote-button" %>
+    <%= button_to "▼ #{event.downvotes}", downvote_event_path(event), class: "vote-button" %>
+  </div>
 <% end %>

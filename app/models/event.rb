@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+  has_one :vote_count, class_name: "Voting::VoteCount", inverse_of: :event, dependent: :destroy
+
   validates :external_id, presence: true, uniqueness: true
   validates :title, presence: true
   validates :starts_at, presence: true
@@ -8,6 +10,14 @@ class Event < ApplicationRecord
     find_or_initialize_by(external_id: attrs.fetch(:external_id)).tap do |event|
       event.assign_attributes(attrs)
     end
+  end
+
+  def upvotes
+    vote_count&.upvotes.to_i
+  end
+
+  def downvotes
+    vote_count&.downvotes.to_i
   end
 
   private
