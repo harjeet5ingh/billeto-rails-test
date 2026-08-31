@@ -76,6 +76,12 @@ group :test do
 
   # RSpec matchers for asserting on published domain events [https://github.com/RailsEventStore/rails_event_store]
   gem "ruby_event_store-rspec"
+
+  # Browser-driven system specs [https://github.com/teamcapybara/capybara]
+  gem "capybara"
+
+  # Headless Chrome driver for Capybara via CDP [https://github.com/rubycdp/cuprite]
+  gem "cuprite"
 end
 
 group :development do
