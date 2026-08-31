@@ -4,7 +4,7 @@ namespace :read_models do
     Voting::VoteCount.delete_all
 
     projector = Voting::VoteCountProjector.new
-    event_types = [Voting::EventUpvoted, Voting::EventDownvoted]
+    event_types = [ Voting::EventUpvoted, Voting::EventDownvoted ]
 
     Rails.configuration.event_store.read.of_type(event_types).each do |event|
       projector.perform(event)

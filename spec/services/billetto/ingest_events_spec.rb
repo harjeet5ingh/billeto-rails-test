@@ -9,7 +9,7 @@ RSpec.describe Billetto::IngestEvents do
     { external_id: "billetto-2", title: nil, description: nil,
       starts_at: 1.week.from_now, image_url: nil, source_url: nil }
   end
-  let(:client) { instance_double(Billetto::Client, list_public_events: [valid_attrs, invalid_attrs]) }
+  let(:client) { instance_double(Billetto::Client, list_public_events: [ valid_attrs, invalid_attrs ]) }
 
   subject(:ingest) { described_class.new(client: client) }
 

@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   root "events#index"
 
-  resource :fake_session, only: [:new, :create, :destroy]
+  resource :fake_session, only: [ :new, :create, :destroy ]
 
-  resources :events, only: [:index] do
+  resources :events, only: [ :index ] do
     member do
       post :upvote, to: "votes#upvote"
       post :downvote, to: "votes#downvote"

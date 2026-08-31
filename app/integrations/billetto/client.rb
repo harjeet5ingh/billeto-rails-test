@@ -49,7 +49,7 @@ module Billetto
         description: raw_event["description"],
         starts_at: parse_time(raw_event["startdate"]),
         image_url: raw_event["image_link"],
-        source_url: raw_event["url"],
+        source_url: raw_event["url"]
       }
     rescue KeyError => e
       raise ResponseError, "Billetto event is missing #{e.key}"
