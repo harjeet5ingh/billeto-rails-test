@@ -1,5 +1,14 @@
 require_relative "boot"
 
+# Clerk's Rack middleware assumes a real secret key (it drives handshake and
+# dev-browser logic off it) - without one, or in tests, skip installing it
+# entirely and let Authentication fall back to the fake sign-in flow instead
+# of risking every request 500ing. Must happen before "rails/all" pulls in
+# the clerk-sdk-ruby gem's Railtie.
+unless ENV["CLERK_SECRET_KEY"].to_s.start_with?("sk_") && ENV["RAILS_ENV"] != "test"
+  ENV["CLERK_SKIP_RAILTIE"] = "1"
+end
+
 require "rails/all"
 
 # Require the gems listed in Gemfile, including any gems

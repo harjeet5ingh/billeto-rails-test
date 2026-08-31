@@ -79,8 +79,6 @@ jobs:
         env:
           RAILS_ENV: test
           # REDIS_URL: redis://localhost:6379/0
-          CLERK_SECRET_KEY: sk_test_dummy
-          CLERK_PUBLISHABLE_KEY: pk_test_dummy
         run: bundle exec rspec
 
       - name: Keep screenshots from failed system tests

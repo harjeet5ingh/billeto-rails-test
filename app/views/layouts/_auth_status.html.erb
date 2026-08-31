@@ -1,0 +1,27 @@
+<div class="auth-status">
+  <% if Authentication::CLERK_ENABLED %>
+    <script
+      async
+      crossorigin="anonymous"
+      data-clerk-publishable-key="<%= ENV["CLERK_PUBLISHABLE_KEY"] %>"
+      src="https://<%= ENV.fetch("CLERK_FRONTEND_API", "your-app.clerk.accounts.dev") %>/npm/@clerk/clerk-js@latest/dist/clerk.browser.js"
+      type="text/javascript"
+    ></script>
+    <div id="clerk-auth"></div>
+    <script>
+      window.addEventListener("load", async function () {
+        await Clerk.load();
+        var mount = document.getElementById("clerk-auth");
+        Clerk.user ? Clerk.mountUserButton(mount) : Clerk.mountSignIn(mount);
+      });
+    </script>
+  <% else %>
+    <span class="auth-status__badge">dev mode</span>
+    <% if user_signed_in? %>
+      Signed in as <strong><%= current_user_id %></strong>
+      <%= button_to "Sign out", fake_session_path, method: :delete, class: "link-button" %>
+    <% else %>
+      <%= link_to "Sign in", new_fake_session_path %>
+    <% end %>
+  <% end %>
+</div>

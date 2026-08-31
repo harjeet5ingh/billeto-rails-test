@@ -17,6 +17,35 @@ body {
   color: #1a1a1a;
 }
 
+.site-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 0.9rem;
+}
+
+.auth-status__badge {
+  background: #eee;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  font-size: 0.75rem;
+  color: #666;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  color: #0645ad;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: inherit;
+}
+
 .event-list {
   display: grid;
   gap: 1.5rem;

@@ -1,0 +1,12 @@
+<% content_for :title, "Sign in" %>
+
+<h1>Sign in</h1>
+<p>Clerk isn't configured with real credentials yet, so this stand-in form is
+used to identify yourself in order to vote. See the README for how to switch
+to real Clerk sign-in.</p>
+
+<%= form_with url: fake_session_path, method: :post, class: "fake-sign-in" do |f| %>
+  <%= f.label :email, "Email" %>
+  <%= f.email_field :email, required: true %>
+  <%= f.submit "Sign in" %>
+<% end %>

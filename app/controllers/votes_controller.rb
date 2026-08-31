@@ -1,4 +1,5 @@
 class VotesController < ApplicationController
+  before_action :require_authentication!
   before_action :set_event
 
   def upvote
